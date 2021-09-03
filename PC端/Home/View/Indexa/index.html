@@ -1,0 +1,52 @@
+﻿<!doctype html>
+<head>
+<meta charset="utf-8">
+<title>任你涂鸦板</title>
+<script type="text/javascript" src="__PUBLIC__/js/jquery-1.9.0.min.js"></script>
+</head>
+<body>
+<center>
+
+<canvas  id="myCanvas1" width="1000" height="1000" style="border:3px solid #ff00ff; background-color:#fff;"></canvas>
+<input type="hidden" id="time" value="" /></center>
+<script>
+function getData(){
+	var c=document.getElementById("myCanvas1");
+	var cxt=c.getContext("2d");
+	var t = document.getElementById("time").value;
+	$.ajax({
+				dataType:"json",
+				type:"post",
+				url:"http://114.55.100.109/Home/Indexa/get_xy",//访问的连接,返回是否有线条数据
+				data:{begin_time:t},
+				success:function(result){
+					if(result.status != 0){//如果状态不等于0,说明有结果,有数据输入,说明手机端输入数据了,然后程序会做出相应反应
+						$.each(result.list,function(index,content){//遍历每两秒一次的查询结果
+							cxt.beginPath();//开始划线
+							var obj = eval(content.line_sites);//声明对象
+							$.each(obj,function(index,con){//通过遍历,根椐js each遍历出来的横纵坐标点,开始划线
+								cxt.lineTo(con.x,con.y);//划线
+							});
+							cxt.lineWidth = content.line_width; // 设置线宽//线的设置
+							cxt.strokeStyle = content.line_style; // 设置线的颜色
+							
+							cxt.stroke();//结束划线
+							document.getElementById("time").value = content.time;
+							})
+						}}
+			});
+}
+//ajax轮询
+$(function () {
+			//如果想所有人进去后能看到所有绘画轨迹请开启
+			document.getElementById("time").value = "";
+			//如果想所有人进去后能看到从进去的当前时间后出现的绘画轨迹请开启
+			//var timestamp = new Date().getTime();
+			//document.getElementById("time").value = content.time = timestamp;
+            getData(); //首次立即加载  
+            window.setInterval(getData, 2000); //以后每2S循环执行一次  
+            }  
+         );  
+</script>
+</body>
+</html>

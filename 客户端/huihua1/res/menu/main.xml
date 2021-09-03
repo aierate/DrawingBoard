@@ -1,0 +1,20 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.huihua.MainActivity" >
+    <item android:title="@string/color">   
+        <menu>
+            <group android:checkableBehavior="single">
+                <item android:id="@+id/red" android:title="@string/color_red"/>
+                <item android:id="@+id/green" android:title="@string/color_green"/>
+                <item android:id="@+id/blue" android:title="@string/color_blue"/>
+            </group>
+        </menu>
+    </item>
+    <item android:id="@+id/width" android:title="@string/width"/> 
+    <item android:id="@+id/clear" android:title="@string/clear"/> 
+    <item android:id="@+id/chexiao" android:title="@string/cehxiao"/>
+    <item android:id="@+id/huifu" android:title="@string/huifu"/>
+    <item android:id="@+id/qingping" android:title="@string/qingping"/> 
+	<item android:id="@+id/save" android:title="@string/save"></item>
+
+</menu>

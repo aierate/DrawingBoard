@@ -1,0 +1,66 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+        <com.example.huihua.PaintView 
+    	android:id="@+id/drawView1" 
+    	android:layout_width="match_parent"
+    	android:layout_height="match_parent"   
+    />
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/pen_bt"
+            android:background="@drawable/kuandu"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/color_bt"
+            android:background="@drawable/yanse"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+      
+         <Button
+            android:id="@+id/curve"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/huabi"  />
+
+        <Button
+            android:id="@+id/line"
+            android:background="@drawable/zhixian"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+          <Button
+            android:id="@+id/triangle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/sanjiaoxing" />
+
+      
+
+        <Button
+            android:id="@+id/rectangular"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/juxing" />
+    </LinearLayout> 
+  	
+    </RelativeLayout>
+
+</FrameLayout>
